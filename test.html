@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinpoint Coordinates</title>
+    <style>
+        .point {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+ //heads of snakes and bottoms of ladders [9.8,0],[88.2,-9.8], [49, -9.8], [29.4, -19.6], [39.2, -19.6], [88.2, -39.2], [78.4, -29.4], [68.6, -58.8], [9.8, -49], [88.2, -49], [19.6, -49], [0, -49], [58.8, -58.8], [29.4, -68.6], [39.2, -68.6], [78.4, -88.2], [58.8, -88.2], [9.8, -88.2]
+ let froms = [[19.6,-19.6], [68.6, -19.6], [58.8, -29.4], [49,0], [29.4, -39.2], [88.2, -19.6], [68.6, -49], [39.2, -29.4], [19.6, -29.4], [78.4, -68.6], [39.2, -58.8], [9.8, -68.6], [19.6, -88.2], [49, -58.8], [88.2, -68.6], [49, -68.6], [19.6, -68.6]]
+        //tails of snake and top of ladders
+        let tos = [[9.8,0],[88.2,-9.8], [49, -9.8], [29.4, -19.6], [39.2, -19.6], [88.2, -39.2], [78.4, -29.4], [68.6, -58.8], [9.8, -49], [88.2, -49], [19.6, -49], [0, -49], [58.8, -58.8], [29.4, -68.6], [39.2, -68.6], [78.4, -88.2], [58.8, -88.2], [9.8, -88.2]]
+        
+
+        function createPoints() {
+            let container = document.createElement('div');
+            container.style.position = 'relative';
+            container.style.width = '100vw';
+            container.style.height = '100vh';
+
+            document.body.appendChild(container);
+
+            froms.forEach(coords => {
+                let point = document.createElement('div');
+                point.className = 'point';
+                point.style.left = coords[0] + 'vw';
+                point.style.top = coords[1] + 'vh';
+                container.appendChild(point);
+            });
+
+            tos.forEach(coords => {
+                let point = document.createElement('div');
+                point.className = 'point';
+                point.style.left = coords[0] + 'vw';
+                point.style.top = coords[1] + 'vh';
+                container.appendChild(point);
+            });
+        }
+
+        createPoints();
+    </script>
+</body>
+</html>
